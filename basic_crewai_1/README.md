@@ -1,54 +1,117 @@
-# BasicCrewai1 Crew
+# Canada RAI Competitiveness — Q&A Chatbot
 
-Welcome to the BasicCrewai1 Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+A multi-agent AI chatbot built with [CrewAI](https://crewai.com) and [Streamlit](https://streamlit.io) for the MIE1624 course project (Winter 2026). The chatbot answers questions about Canada's AI competitiveness using a three-agent sequential pipeline grounded in the group's analytical report.
 
-## Installation
+---
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+## How It Works
 
-First, if you haven't already, install uv:
+The chatbot uses a **3-agent sequential pipeline**. When a user submits a question, three specialized AI agents collaborate in order — each agent's output feeds into the next.
+
+```
+User Question
+     │
+     ▼
+[1] Data Analyst          → extracts relevant facts and numbers from project context
+     │
+     ▼
+[2] Policy Strategy Analyst  → interprets findings, maps to recommendations, searches web if needed
+     │
+     ▼
+[3] Answer Writer          → synthesizes a concise, well-cited Q&A response
+```
+
+### Agent Roles
+
+| Agent | Role | Tools |
+|---|---|---|
+| **Data Analyst** | Retrieves all quantitative evidence relevant to the question from the structured project context (RAI scores, R&D metrics, economic data, policy gaps) | None — works directly from injected context |
+| **Policy Strategy Analyst** | Interprets the evidence, connects findings across sections, and maps them to the three policy recommendations with costs, timelines, and agencies | Web search (only for post-2024 events not in the report) |
+| **Answer Writer** | Synthesizes both outputs into a concise, well-cited answer formatted for a live Q&A audience | None |
+
+### Project Context
+
+All project data is pre-loaded from structured JSON files in `data/` and injected directly into the first task prompt. This keeps the full report accessible to agents without any retrieval step.
+
+| File | Contents |
+|---|---|
+| `rai_context.json` | RAI scores, policy engagement, responsible AI metrics |
+| `rd_context.json` | R&D indicators, talent, patent and publication data |
+| `policy_context.json` | Policy & governance analysis, framework participation |
+| `economy_context.json` | Economic profile, startup ecosystem, adoption rates |
+| `recommendations_context.json` | Three policy recommendations with costs and timelines |
+| `pr_strategy_context.json` | Public relations strategy and messaging framework |
+
+---
+
+## Setup
+
+**Requirements:** Python 3.10–3.13, [uv](https://docs.astral.sh/uv/)
+
+**1. Install dependencies**
 
 ```bash
 pip install uv
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
 crewai install
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+**2. Configure API keys**
 
-- Modify `src/basic_crewai_1/config/agents.yaml` to define your agents
-- Modify `src/basic_crewai_1/config/tasks.yaml` to define your tasks
-- Modify `src/basic_crewai_1/crew.py` to add your own logic, tools and specific args
-- Modify `src/basic_crewai_1/main.py` to add custom inputs for your agents and tasks
+Create a `.env` file in the `basic_crewai_1/` directory:
 
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+```
+OPENAI_API_KEY=your_openai_key
+SERPER_API_KEY=your_serper_key
 ```
 
-This command initializes the basic_crewai_1 Crew, assembling the agents and assigning them tasks as defined in your configuration.
+`SERPER_API_KEY` is required for the web search tool on the Policy Strategy Analyst. Get a free key at [serper.dev](https://serper.dev).
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+---
 
-## Understanding Your Crew
+## Running the Chatbot
 
-The basic_crewai_1 Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+### Streamlit UI (recommended)
 
-## Support
+From the `basic_crewai_1/` directory:
 
-For support, questions, or feedback regarding the BasicCrewai1 Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+```bash
+streamlit run src/basic_crewai_1/app.py
+```
 
-Let's create wonders together with the power and simplicity of crewAI.
+Opens a chat interface in your browser with example questions in the sidebar. Answers are saved automatically to `outputs/`.
+
+### CLI Mode
+
+```bash
+crewai run
+```
+
+Runs the chatbot in the terminal. Type `stop` to exit.
+
+---
+
+## Project Structure
+
+```
+basic_crewai_1/
+├── data/                         # Structured JSON context files (project report data)
+├── outputs/                      # Auto-saved Q&A responses (markdown)
+├── src/basic_crewai_1/
+│   ├── app.py                    # Streamlit chat UI
+│   ├── crew.py                   # Agent and task definitions
+│   ├── main.py                   # Context loading and CLI runner
+│   └── config/
+│       ├── agents.yaml           # Agent roles, goals, and backstories
+│       └── tasks.yaml            # Task prompts and expected outputs
+├── .env                          # API keys (not committed)
+└── pyproject.toml
+```
+
+---
+
+## Design Decisions
+
+- **Context injection over retrieval** — The full ~15K token project context is injected directly into the first task prompt rather than using a retrieval (RAG) system. This eliminates retrieval failure risk and is well within modern LLM context windows.
+- **Web search is gated** — The Policy Strategy Analyst only calls the web search tool when the question explicitly asks about events after 2024. This prevents unnecessary tool calls and keeps response time down.
+- **`max_iter` caps** — Each agent is capped at 2–3 reasoning iterations to prevent runaway tool-calling loops (default is 20).
+- **Sequential process** — Tasks run in a fixed order; each task receives the outputs of prior tasks via CrewAI's `context:` chaining.
