@@ -16,6 +16,7 @@ _CONTEXT_FILES = {
     "Policy & Governance Analysis": Path("data/policy_context.json"),
     "Economy Analysis": Path("data/economy_context.json"),
     "Policy Recommendations": Path("data/recommendations_context.json"),
+    "Public Relations Strategy": Path("data/pr_strategy_context.json"),
 }
 
 
