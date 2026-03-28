@@ -1,0 +1,49 @@
+{
+  "section": "Policy & Governance Analysis",
+  "canada_profile": {
+    "government_strategy_score": 100,
+    "operating_environment": "strong",
+    "legislative_activity_vs_peers": "moderate — below US and UK",
+    "public_sector_ai_procurement": "limited relative to peers — scale and visibility gaps",
+    "overall_policy_rank": "below USA, UK, Germany, France in overall competitiveness",
+    "strengths": ["Government Strategy score", "Operating Environment", "institutional foundation"],
+    "weaknesses": ["legislative activity volume", "public-sector AI contract scale", "governance implementation visibility"]
+  },
+  "policy_indicators_methodology": {
+    "indicators_used": [
+      "AI-related bills passed into law (2016-2024)",
+      "Recent AI-related bills introduced",
+      "AI mentions in legislative proceedings",
+      "Public AI contract value",
+      "Number of public AI contracts",
+      "Government Strategy score",
+      "Operating Environment score"
+    ],
+    "normalization": "MinMax scaling",
+    "missing_value_treatment": "filled with 0"
+  },
+  "existing_canadian_frameworks": [
+    "Pan-Canadian AI Strategy (CIFAR) — talent, research, national institutes",
+    "Canadian Sovereign AI Compute Strategy (2024) — compute infrastructure, Canadian data/IP sovereignty",
+    "AI Strategy for the Federal Public Service (2025-2027) — federal department AI adoption",
+    "AIDA (Artificial Intelligence and Data Act) — proposed, not yet passed"
+  ],
+  "framework_gap": "Canada's strategies emphasize capacity building and institutional readiness, but results show these are not yet reflected in measurable outcomes: legislative activity, procurement scale, governance participation, or public literacy.",
+  "peer_comparisons": {
+    "USA": "strong implementation through large-scale procurement and deployment",
+    "UK": "most balanced — performs well across governance, research, and implementation",
+    "Germany": "benefits from EU binding frameworks (EU AI Act); higher governance participation",
+    "France": "benefits from EU binding frameworks; regulatory leadership",
+    "China": "large-scale development and state-supported industrial scaling"
+  },
+  "key_findings": [
+    "Canada performs strongly in Government Strategy (100/100) and Operating Environment",
+    "Canada ranks below USA, UK, Germany, France in overall policy competitiveness",
+    "Canada has comparatively low legislative activity and limited public-sector AI procurement",
+    "Policy intent has not yet translated into large-scale implementation",
+    "Germany and France outperform Canada partly due to EU binding governance frameworks",
+    "UK demonstrates balanced execution across governance, research, and implementation",
+    "Canada's main gap is not absence of strategy — it is limited conversion of strategy into visible, measurable execution"
+  ],
+  "core_gap": "Canada has strong strategy frameworks but lacks visible execution. The challenge is translating policy intent into legislative activity, procurement scale, and governance influence comparable to leading nations."
+}

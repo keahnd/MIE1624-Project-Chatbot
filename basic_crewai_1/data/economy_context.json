@@ -1,0 +1,66 @@
+{
+  "section": "Economy Analysis",
+  "canada_economic_profile": {
+    "active_ai_professionals": 140000,
+    "ai_startups_with_1m_usd_plus_investment": 670,
+    "venture_capital_ai_2022_usd_billions": 8.6,
+    "vc_ai_as_pct_total_canadian_vc": "30%",
+    "stanford_ai_vibrancy_index_rank": 5,
+    "ai_capacity_global_rank": "5 of 62 countries",
+    "current_business_ai_adoption_rate": "12%",
+    "firms_citing_compute_cost_as_barrier": "45%",
+    "hpc_infrastructure_vs_g7": "lags all G7 nations",
+    "top_global_ai_clusters_presence": "no Canadian cluster in top 25 globally"
+  },
+  "cluster_analysis": {
+    "methodology": "K-Means clustering on Talent, Infrastructure, Operating Environment, Research, Development, Government Strategy, Commercial Ecosystem, Scale, Intensity",
+    "optimal_k": 6,
+    "canada_cluster": "top 10% performing countries",
+    "canada_cluster_peers": ["UK", "EU countries", "France", "Germany", "Israel", "South Korea", "Singapore"],
+    "economic_factor_formula": "Commercial(0.30) + Talent(0.25) + Scale(0.20) + Development(0.15) + Infrastructure(0.10)"
+  },
+  "scenario_analysis": {
+    "scenario_1_rd": {
+      "name": "R&D Focus: Translational R&D Mission + Sovereign Compute + Mitacs Talent",
+      "projected_gains": {
+        "research": "+29 points",
+        "development": "+28 points",
+        "talent": "+30 points"
+      }
+    },
+    "scenario_2_government": {
+      "name": "Government Focus: Policy Coordination + Strategic Support",
+      "projected_gains": {
+        "development": "+30 points",
+        "government_strategy": "+30 points",
+        "operating_environment": "+29 points"
+      }
+    },
+    "scenario_3_economic": {
+      "name": "Economic Focus: Adoption + Deployment Improvements",
+      "projected_gains": {
+        "commercial_ecosystem": "+30 points",
+        "development": "+25 points",
+        "government_strategy": "+23 points"
+      }
+    }
+  },
+  "peer_comparisons": {
+    "USA": "leads through scale, deep capital markets, and widespread deployment",
+    "China": "leads through industrial integration and state-supported scaling",
+    "EU": "benefits from larger coordinated markets and stronger industrial clusters",
+    "Canada": "strong supply (talent, research, startups) but weak demand-side adoption and firm-level execution"
+  },
+  "key_findings": [
+    "Canada has a credible AI economy: 140K+ professionals, 670+ AI startups, $8.6B VC in 2022",
+    "Canada ranks 5th on Stanford AI Vibrancy Index and 5th of 62 countries for AI capacity",
+    "Business AI adoption at only 12% — significantly below international peers",
+    "45% of Canadian AI firms cite high compute costs as the top growth barrier",
+    "Canada has no AI cluster in the global top 25 — lags US, China, EU in commercialization hubs",
+    "Canada lags all G7 nations in HPC infrastructure — essential for scaling AI to products",
+    "Patent growth is strong in absolute terms but commercialization gap persists",
+    "Canada has the ingredients of a strong AI economy but not the demand-side adoption or scaled deployment of leading nations",
+    "Scenario analysis shows largest gains achievable through combined R&D + government + economic interventions"
+  ],
+  "core_gap": "Canada has strong AI supply (talent, startups, research) but consistently underperforms in converting this into widespread business adoption, scaled deployment, and productivity gains. The execution gap between research-excellence and commercial outcomes is the defining challenge."
+}

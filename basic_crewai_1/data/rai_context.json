@@ -1,0 +1,230 @@
+{
+  "section": "Responsible AI Country Performance",
+  "source": "Stanford AI Index 2025, Chapter 3",
+  "last_updated": "2025",
+  "canada_rai_profile": {
+    "research_rank_2024": 5,
+    "research_papers_2024": 55,
+    "research_papers_per_million": 1.37,
+    "cumulative_papers_2019_2024_estimate": 260,
+    "policy_frameworks_member": [
+      "OECD AI Principles",
+      "G7 AI Cooperation",
+      "UN AI Advisory Body",
+      "International AI Safety Institutes Network"
+    ],
+    "policy_frameworks_absent": [
+      "EU AI Act",
+      "Council of Europe AI Convention",
+      "ASEAN-US AI Statement",
+      "African Union Continental AI Strategy",
+      "Arab League AI Dialogue"
+    ],
+    "kpmg_ai_literacy_rank": "41th out of 47 countries",
+    "composite_rai_score": 0.2931,
+    "composite_rai_rank": 7,
+    "note_on_composite_rank": "Ranked 7 of 13 countries scored. Composite weights: research 35%, policy 30%, Oxford readiness 20%, research efficiency 15%. Incident dimension omitted (no per-country data)."
+  },
+  "global_context": {
+    "total_rai_papers_2024": 1278,
+    "yoy_growth_2023_2024": "28.8%",
+    "ai_incidents_2024": 233,
+    "ai_incidents_yoy_growth": "56.4%",
+    "top_corporate_rai_obstacles": [
+      "Knowledge and training gaps (51%)",
+      "Resource or budget constraints (45%)",
+      "Regulatory uncertainty (40%)"
+    ],
+    "fastest_growing_rai_topics_2024": [
+      "Fairness and bias (nearly 2x YoY)",
+      "Security and safety (nearly 2x YoY)"
+    ],
+    "foundation_model_transparency_avg_score": "58/100 (up from 37 in 2023)"
+  },
+  "scoring_methodology": {
+    "dimensions": {
+      "research_output": {
+        "weight": 0.35,
+        "source": "Stanford AI Index Fig 3.4.3"
+      },
+      "research_efficiency": {
+        "weight": 0.15,
+        "source": "Papers per million (World Bank pop)"
+      },
+      "policy_engagement": {
+        "weight": 0.3,
+        "source": "Weighted participation in 9 frameworks"
+      },
+      "oxford_readiness": {
+        "weight": 0.2,
+        "source": "Oxford Insights AI Readiness Index 2025"
+      }
+    },
+    "n_countries": 13,
+    "normalisation": "MinMaxScaler per dimension",
+    "imputed_zero_papers": [
+      "France",
+      "South Korea",
+      "Australia",
+      "Brazil"
+    ]
+  },
+  "country_rankings": [
+    {
+      "country": "United States",
+      "rai_rank": 1,
+      "composite_rai_score": 0.7893,
+      "rai_papers_2024": 669,
+      "papers_imputed": false,
+      "rai_papers_per_million": 1.992,
+      "policy_score_weighted": 7.0,
+      "oxford_ai_readiness_score": 88.36,
+      "kpmg_ai_literacy_rank": 34
+    },
+    {
+      "country": "Germany",
+      "rai_rank": 2,
+      "composite_rai_score": 0.4445,
+      "rai_papers_2024": 80,
+      "papers_imputed": false,
+      "rai_papers_per_million": 0.948,
+      "policy_score_weighted": 10.0,
+      "oxford_ai_readiness_score": 75.4,
+      "kpmg_ai_literacy_rank": 46
+    },
+    {
+      "country": "France",
+      "rai_rank": 3,
+      "composite_rai_score": 0.4308,
+      "rai_papers_2024": 0,
+      "papers_imputed": true,
+      "rai_papers_per_million": 0.0,
+      "policy_score_weighted": 10.0,
+      "oxford_ai_readiness_score": 80.81,
+      "kpmg_ai_literacy_rank": 40
+    },
+    {
+      "country": "Netherlands",
+      "rai_rank": 4,
+      "composite_rai_score": 0.3984,
+      "rai_papers_2024": 31,
+      "papers_imputed": false,
+      "rai_papers_per_million": 1.732,
+      "policy_score_weighted": 8.5,
+      "oxford_ai_readiness_score": 77.0,
+      "kpmg_ai_literacy_rank": 39
+    },
+    {
+      "country": "United Kingdom",
+      "rai_rank": 5,
+      "composite_rai_score": 0.3896,
+      "rai_papers_2024": 67,
+      "papers_imputed": false,
+      "rai_papers_per_million": 0.99,
+      "policy_score_weighted": 8.0,
+      "oxford_ai_readiness_score": 77.75,
+      "kpmg_ai_literacy_rank": 35
+    },
+    {
+      "country": "Singapore",
+      "rai_rank": 6,
+      "composite_rai_score": 0.3334,
+      "rai_papers_2024": 39,
+      "papers_imputed": false,
+      "rai_papers_per_million": 6.61,
+      "policy_score_weighted": 4.0,
+      "oxford_ai_readiness_score": 74.7,
+      "kpmg_ai_literacy_rank": 16
+    },
+    {
+      "country": "Canada",
+      "rai_rank": 7,
+      "composite_rai_score": 0.2931,
+      "rai_papers_2024": 55,
+      "papers_imputed": false,
+      "rai_papers_per_million": 1.372,
+      "policy_score_weighted": 6.0,
+      "oxford_ai_readiness_score": 74.66,
+      "kpmg_ai_literacy_rank": 41
+    },
+    {
+      "country": "Japan",
+      "rai_rank": 8,
+      "composite_rai_score": 0.2667,
+      "rai_papers_2024": 36,
+      "papers_imputed": false,
+      "rai_papers_per_million": 0.289,
+      "policy_score_weighted": 7.0,
+      "oxford_ai_readiness_score": 71.7,
+      "kpmg_ai_literacy_rank": 44
+    },
+    {
+      "country": "South Korea",
+      "rai_rank": 9,
+      "composite_rai_score": 0.2297,
+      "rai_papers_2024": 0,
+      "papers_imputed": true,
+      "rai_papers_per_million": 0.0,
+      "policy_score_weighted": 5.5,
+      "oxford_ai_readiness_score": 76.2,
+      "kpmg_ai_literacy_rank": 23
+    },
+    {
+      "country": "China",
+      "rai_rank": 10,
+      "composite_rai_score": 0.2119,
+      "rai_papers_2024": 268,
+      "papers_imputed": false,
+      "rai_papers_per_million": 0.19,
+      "policy_score_weighted": 1.5,
+      "oxford_ai_readiness_score": 73.9,
+      "kpmg_ai_literacy_rank": 5
+    },
+    {
+      "country": "Australia",
+      "rai_rank": 11,
+      "composite_rai_score": 0.166,
+      "rai_papers_2024": 0,
+      "papers_imputed": true,
+      "rai_papers_per_million": 0.0,
+      "policy_score_weighted": 4.5,
+      "oxford_ai_readiness_score": 73.11,
+      "kpmg_ai_literacy_rank": 43
+    },
+    {
+      "country": "India",
+      "rai_rank": 12,
+      "composite_rai_score": 0.0579,
+      "rai_papers_2024": 42,
+      "papers_imputed": false,
+      "rai_papers_per_million": 0.029,
+      "policy_score_weighted": 2.5,
+      "oxford_ai_readiness_score": 66.55,
+      "kpmg_ai_literacy_rank": 4
+    },
+    {
+      "country": "Brazil",
+      "rai_rank": 13,
+      "composite_rai_score": 0.0275,
+      "rai_papers_2024": 0,
+      "papers_imputed": true,
+      "rai_papers_per_million": 0.0,
+      "policy_score_weighted": 1.5,
+      "oxford_ai_readiness_score": 69.55,
+      "kpmg_ai_literacy_rank": 12
+    }
+  ],
+  "key_findings": [
+    "Canada ranks 5th globally in RAI research output but 44th in AI literacy, indicating a broken pipeline from academic excellence to public understanding.",
+    "Canada participates in only 4 of 9 major international RAI governance frameworks identified in Chapter 3, compared to 7+ for leading EU nations.",
+    "Global RAI research grew 4x from 2019 to 2024; Canada has maintained its relative position but not gained ground against the US or China.",
+    "The EU AI Act and Council of Europe AI Convention represent legally binding frameworks Canada is absent from — a governance gap relative to peer nations.",
+    "Fairness and security are the fastest-growing RAI research areas globally in 2024 — Canada's investment through CIFAR/Vector positions it well if governance keeps pace."
+  ],
+  "strategy_implications": [
+    "Canada should leverage its research strength (rank 5) to position itself as a standard-setter, not just a participant, in international RAI governance bodies.",
+    "A national AI literacy program is warranted given the gap between research output (5th) and public AI literacy (44th).",
+    "Canada should seek observer or signatory status in EU AI Act equivalency frameworks to align its regulatory environment with its largest trading partners.",
+    "The CIFAR/Vector/Mila ecosystem should be formally tasked with producing Canada-specific RAI benchmarks and incident tracking infrastructure."
+  ]
+}

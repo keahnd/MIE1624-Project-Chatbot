@@ -1,60 +1,48 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import SerperDevTool
 
-from basic_crewai_1.tools.custom_tool import RAIContextTool, RAIDataQueryTool
+from basic_crewai_1.tools.custom_tool import ProjectContextTool, DataQueryTool
+
+web_search = SerperDevTool()
 
 
 @CrewBase
 class BasicCrewai1:
     @agent
-    def researcher(self) -> Agent:
+    def data_analyst(self) -> Agent:
         return Agent(
-            config=self.agents_config["researcher"],
-            tools=[RAIContextTool()],
+            config=self.agents_config["data_analyst"],
+            tools=[ProjectContextTool(), DataQueryTool(), web_search],
             verbose=True
         )
 
     @agent
-    def analyst(self) -> Agent:
+    def policy_strategy_analyst(self) -> Agent:
         return Agent(
-            config=self.agents_config["analyst"],
-            tools=[RAIDataQueryTool()],
+            config=self.agents_config["policy_strategy_analyst"],
+            tools=[DataQueryTool(), web_search],
             verbose=True
         )
 
     @agent
-    def writer(self) -> Agent:
+    def answer_writer(self) -> Agent:
         return Agent(
-            config=self.agents_config["writer"],
-            verbose=True
-        )
-
-    @agent
-    def reviewer(self) -> Agent:
-        return Agent(
-            config=self.agents_config["reviewer"],
+            config=self.agents_config["answer_writer"],
             verbose=True
         )
 
     @task
-    def research_task(self) -> Task:
-        return Task(config=self.tasks_config["research_task"])
+    def gather_data_task(self) -> Task:
+        return Task(config=self.tasks_config["gather_data_task"])
 
     @task
-    def analysis_task(self) -> Task:
-        return Task(config=self.tasks_config["analysis_task"])
+    def interpret_task(self) -> Task:
+        return Task(config=self.tasks_config["interpret_task"])
 
     @task
-    def draft_report_task(self) -> Task:
-        return Task(config=self.tasks_config["draft_report_task"])
-
-    @task
-    def review_task(self) -> Task:
-        return Task(config=self.tasks_config["review_task"])
-
-    @task
-    def revision_task(self) -> Task:
-        return Task(config=self.tasks_config["revision_task"])
+    def write_answer_task(self) -> Task:
+        return Task(config=self.tasks_config["write_answer_task"])
 
     @crew
     def crew(self) -> Crew:
@@ -62,6 +50,6 @@ class BasicCrewai1:
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,
-            planning=True,
+            planning=False,
             verbose=True
         )

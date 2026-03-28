@@ -1,0 +1,84 @@
+{
+  "section": "Research, Development, and Science & Medicine Analysis",
+  "canada_profile": {
+    "notable_ai_models_2024": 1,
+    "patents_per_100k_population": 0.17,
+    "patent_global_rank": 18,
+    "g7_talent_growth_rank": 1,
+    "talent_annual_growth_rate": "38% average since 2018",
+    "top_tier_researcher_global_share": "10% of world top 0.5% AI researchers",
+    "top_tier_researcher_rank": 3,
+    "ai_publications_2022": 6000,
+    "g7_papers_per_capita_rank": 1,
+    "rd_index_scores": {
+      "research": 31,
+      "development": 26,
+      "talent": null,
+      "infrastructure": 77,
+      "government_strategy": 100,
+      "commercial": 15
+    },
+    "science_medicine_score": 39.53,
+    "science_medicine_rank_in_comparison_group": 6,
+    "cluster_assignment": "Cluster 4",
+    "cluster_peers": ["United Kingdom", "Singapore", "Germany", "France"],
+    "cluster_avg_science_medicine_score": 37.85
+  },
+  "global_context": {
+    "total_ai_publications_2023": 243000,
+    "total_ai_publications_2013": 102000,
+    "publications_as_pct_cs_2023": "41.8%",
+    "top_publication_countries_share": {
+      "China": "23.2%",
+      "India": "9.2%",
+      "USA": "9.2%"
+    },
+    "industry_share_of_notable_models_2024": "90.2%",
+    "total_ai_patents_2023": 122500,
+    "total_ai_patents_2010": 3800,
+    "patent_growth_multiplier_since_2010": "32x",
+    "china_patent_share_2023": "69.7%"
+  },
+  "peer_comparisons": {
+    "notable_ai_models_2024": {
+      "USA": 40,
+      "China": 15,
+      "France": 3,
+      "Canada": 1
+    },
+    "patents_per_100k_population": {
+      "South Korea": 17.27,
+      "USA": 5.20,
+      "Canada": 0.17
+    },
+    "science_medicine_scores": {
+      "USA": 97.14,
+      "China": 67.78,
+      "South Korea": 47.31,
+      "Singapore": 40.76,
+      "UK": 40.47,
+      "Canada": 39.53,
+      "Australia": 39.12,
+      "Germany": 38.11,
+      "Israel": 36.03
+    },
+    "usa_advantage_over_canada": {
+      "research_gap_points": 70,
+      "development_gap_points": 75,
+      "talent_gap_points": 69,
+      "infrastructure_gap_points": 17
+    }
+  },
+  "key_findings": [
+    "Canada ranks 1st in G7 for AI talent concentration growth and AI papers per capita every year since 2019",
+    "Canada holds 10% of the world's top 0.5% AI researchers — ranked 3rd globally",
+    "Canada produced only 1 notable AI model in 2024 vs USA (40), China (15), France (3)",
+    "Canada's patent output (0.17 per 100K) is 30x lower than USA (5.20) and 100x lower than South Korea (17.27)",
+    "Country AI index: Infrastructure 77, Government Strategy 100, but Research 31, Development 26, Commercial 15",
+    "Industry now produces 90.2% of notable AI models globally — Canada lacks sufficient industry-scale R&D",
+    "China's strategic choice: open-source models (DeepSeek, Qwen); US: proprietary API models (GPT, Claude, Gemini)",
+    "Canada excels at knowledge generation but fails to move projects through TRL 4-8 (validation, prototyping, pilot deployment)",
+    "Science & Medicine score: Canada ranks 6th in comparison group, clustered with UK, Singapore, Germany, France"
+  ],
+  "core_gap": "Canada has strong research supply (talent, publications, citations) but fails to translate into patents, notable models, or commercial products. The challenge is moving AI projects through the mid-to-late innovation stages rather than generating more upstream research."
+}

@@ -1,54 +1,48 @@
 import json
 from pathlib import Path
 from datetime import datetime
-from docx import Document
+from typing import Optional
 
 from basic_crewai_1.crew import BasicCrewai1
 
 
-REPORT_PATH = "data/final_report.docx"
-RAI_CONTEXT_PATH = r"C:\Users\keahn\Documents\UofT\Coursework\MIE1624\Project\rai_analysis\outputs\rai_context.json"
 OUTPUT_DIR = "outputs"
 
+# Structured JSON context files — one per analytical section.
+# These replace the raw .docx to keep token count manageable.
+_CONTEXT_FILES = {
+    "RAI Analysis (Policy Engagement & Responsible AI Scores)": Path("data\rai_context.json"),
+    "Research, Development & Science/Medicine Analysis": Path("data/rd_context.json"),
+    "Policy & Governance Analysis": Path("data/policy_context.json"),
+    "Economy Analysis": Path("data/economy_context.json"),
+    "Policy Recommendations": Path("data/recommendations_context.json"),
+}
 
+
+def load_full_context() -> str:
+    """Assemble full project context from structured JSON files.
+
+    Each file corresponds to one analytical section of the group report.
+    Using JSON instead of the raw .docx reduces token count from ~150K to ~15K.
+    """
+    sections = []
+    for label, path in _CONTEXT_FILES.items():
+        if path.exists():
+            with open(path, encoding="utf-8") as f:
+                data = json.dumps(json.load(f), indent=2)
+            sections.append(f"=== {label.upper()} ===\n{data}")
+        else:
+            sections.append(f"=== {label.upper()} ===\n[File not found: {path}]")
+    return "\n\n".join(sections)
+
+
+# Keep load_rai_context() as a standalone helper used by app.py cache
 def load_rai_context() -> str:
-    """Load structured RAI analysis data from rai_context.json."""
-    context_path = Path(RAI_CONTEXT_PATH)
-    if not context_path.exists():
+    path = _CONTEXT_FILES["RAI Analysis (Policy Engagement & Responsible AI Scores)"]
+    if not path.exists():
         return ""
-    with open(context_path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.dumps(json.load(f), indent=2)
-
-
-def read_docx(path: str) -> str:
-    """Read text from a .docx file, including paragraphs and tables."""
-    file_path = Path(path)
-    if not file_path.exists():
-        raise FileNotFoundError(f"File not found: {file_path}")
-
-    doc = Document(file_path)
-
-    paragraphs = [p.text.strip() for p in doc.paragraphs if p.text.strip()]
-
-    table_lines = []
-    for table in doc.tables:
-        for row in table.rows:
-            cells = [cell.text.strip() for cell in row.cells]
-            if any(cells):
-                table_lines.append(" | ".join(cells))
-
-    parts = []
-    if paragraphs:
-        parts.append("\n".join(paragraphs))
-    if table_lines:
-        parts.append("\n".join(table_lines))
-
-    full_text = "\n\n".join(parts).strip()
-
-    if not full_text:
-        raise ValueError(f"No readable text found in: {file_path}")
-
-    return full_text
 
 
 def save_answer(question_number: int, question: str, answer: str) -> Path:
@@ -70,13 +64,7 @@ def save_answer(question_number: int, question: str, answer: str) -> Path:
 
 
 def run():
-    report_text = read_docx(REPORT_PATH)
-    rai_context = load_rai_context()
-
-    if rai_context:
-        full_context = f"=== GROUP REPORT ===\n{report_text}\n\n=== RAI ANALYSIS DATA ===\n{rai_context}"
-    else:
-        full_context = report_text
+    full_context = load_full_context()
 
     print("\nCrewAI chatbot is ready. Type 'stop' to exit.\n")
 

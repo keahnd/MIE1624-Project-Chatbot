@@ -15,36 +15,36 @@ class QueryInput(BaseModel):
     query: str = Field(..., description="A natural-language question or keyword to look up.")
 
 
-class RAIContextTool(BaseTool):
-    """Returns the full structured RAI country database as JSON."""
+class ProjectContextTool(BaseTool):
+    """Returns the full structured project database as JSON, covering all analytical sections."""
 
-    name: str = "RAI Country Data"
+    name: str = "Project Context Database"
     description: str = (
-        "Returns the full structured RAI analysis database containing composite scores, "
-        "rankings, research paper counts, policy engagement scores, Oxford AI readiness "
-        "scores, KPMG literacy ranks, key findings, and strategic recommendations for "
-        "13 countries. Use this when the question involves specific scores, ranks, or "
-        "country comparisons."
+        "Returns the full structured project analysis database covering all sections: "
+        "RAI scores and country rankings, R&D indicators, economy data, policy governance, "
+        "and all three policy recommendations with costs and timelines for 13 countries. "
+        "Use this for any question about specific scores, rankings, methodology, or "
+        "cross-country comparisons."
     )
     args_schema: Type[BaseModel] = QueryInput
 
     def _run(self, query: str) -> str:
         path = Path(RAI_CONTEXT_PATH)
         if not path.exists():
-            return f"RAI context file not found at: {RAI_CONTEXT_PATH}"
+            return f"Project context file not found at: {RAI_CONTEXT_PATH}"
         with open(path, encoding="utf-8") as f:
             return json.dumps(json.load(f), indent=2)
 
 
-class RAIDataQueryTool(BaseTool):
-    """Queries the RAI processed CSV tables using pandas for live comparisons."""
+class DataQueryTool(BaseTool):
+    """Queries the project processed CSV tables using pandas for live statistical comparisons."""
 
-    name: str = "RAI CSV Data Query"
+    name: str = "Project CSV Data Query"
     description: str = (
-        "Query the raw RAI analysis CSV tables for live statistical comparisons. "
-        "Available data: composite_rai_scores (country, rai_papers_2024, composite_rai_score, "
-        "rai_rank), policy_participation (country, OECD, CoE_Convention, EU_AI_Act, policy_score), "
-        "kpmg_ai_literacy (country, kpmg_rank). "
+        "Query the raw project CSV data tables for live statistical comparisons across "
+        "all analytical sections. Available data: composite scores by country, policy "
+        "participation by framework (OECD, CoE_Convention, EU_AI_Act, etc.), KPMG AI "
+        "literacy ranks, RAI research papers by country, and external indices. "
         "Input examples: 'top 5 countries by composite score', 'Canada policy score', "
         "'bottom 3 countries by literacy', 'all countries'. "
         "Returns a formatted table of results."

@@ -8,9 +8,7 @@ Run from the basic_crewai_1/ directory:
 import streamlit as st
 
 from basic_crewai_1.crew import BasicCrewai1
-from basic_crewai_1.main import load_rai_context, read_docx, save_answer
-
-REPORT_PATH = "data/final_report.docx"
+from basic_crewai_1.main import load_full_context, save_answer
 
 EXAMPLE_QUESTIONS = [
     # Policy & Governance / RAI
@@ -29,13 +27,9 @@ EXAMPLE_QUESTIONS = [
 ]
 
 
-@st.cache_resource(show_spinner="Loading report and RAI data...")
+@st.cache_resource(show_spinner="Loading project context...")
 def load_context() -> str:
-    report = read_docx(REPORT_PATH)
-    rai = load_rai_context()
-    if rai:
-        return f"=== GROUP REPORT ===\n{report}\n\n=== RAI ANALYSIS DATA ===\n{rai}"
-    return report
+    return load_full_context()
 
 
 def ask_crew(question: str, full_context: str) -> str:
