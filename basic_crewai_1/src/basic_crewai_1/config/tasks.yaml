@@ -38,7 +38,7 @@ interpret_task:
 
 write_answer_task:
   description: >
-    Write the final answer to the professor's question using the data and interpretation
+    Write the final answer to the user's question using the data and interpretation
     from the previous two tasks.
 
     User Question: {user_question}
