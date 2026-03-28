@@ -5,6 +5,12 @@ Run from the basic_crewai_1/ directory:
     streamlit run src/basic_crewai_1/app.py
 """
 
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env from basic_crewai_1/ (three levels up from src/basic_crewai_1/app.py)
+load_dotenv(Path(__file__).parent.parent.parent / ".env")
+
 import streamlit as st
 
 from basic_crewai_1.crew import BasicCrewai1

@@ -13,7 +13,8 @@ class BasicCrewai1:
     def data_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config["data_analyst"],
-            tools=[ProjectContextTool(), DataQueryTool(), web_search],
+            tools=[ProjectContextTool(), DataQueryTool()],
+            max_iter=3,
             verbose=True
         )
 
@@ -22,6 +23,7 @@ class BasicCrewai1:
         return Agent(
             config=self.agents_config["policy_strategy_analyst"],
             tools=[DataQueryTool(), web_search],
+            max_iter=3,
             verbose=True
         )
 
@@ -29,6 +31,7 @@ class BasicCrewai1:
     def answer_writer(self) -> Agent:
         return Agent(
             config=self.agents_config["answer_writer"],
+            max_iter=2,
             verbose=True
         )
 

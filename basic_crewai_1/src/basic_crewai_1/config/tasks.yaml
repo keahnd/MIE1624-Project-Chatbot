@@ -10,15 +10,11 @@ gather_data_task:
 
     Retrieve ALL quantitative data relevant to this question from any section that applies.
     Use the Project Context Database tool for structured lookups. Use the Project CSV Data
-    Query tool for live CSV comparisons across countries. Use Web Search if the question
-    involves current events, recent government announcements, or facts not covered in the
-    project data.
+    Query tool for live CSV comparisons across countries.
 
-    Label each fact with its source section (e.g. "From Economy section:", "From R&D:",
-    "From Web Search:").
+    Label each fact with its source section (e.g. "From Economy section:", "From R&D:").
   expected_output: >
-    A structured evidence summary with labelled data points from all relevant sections,
-    including any web search results used.
+    A structured evidence summary with labelled data points from all relevant sections.
   agent: data_analyst
 
 interpret_task:
@@ -28,12 +24,12 @@ interpret_task:
 
     User Question: {user_question}
 
-    Connect findings across sections where relevant — for example, link Canada's low
-    governance participation (Policy section) to its commercialization weakness (Economy
-    section) to explain why a specific recommendation is needed. Use Web Search if the
-    question involves recent Canadian government policy actions or current events beyond
-    the project report. Identify the specific recommendations that address the topic with
-    their costs, timelines, and responsible agencies.
+    Connect findings across sections where relevant. Identify the specific recommendations
+    that address the topic with their costs, timelines, and responsible agencies.
+
+    ONLY use Web Search if the question explicitly asks about events or announcements
+    after 2024 that are not covered in the evidence summary. Do not use web search for
+    questions answerable from the project data.
   expected_output: >
     A clear interpretation with cross-section connections and specific recommendation
     references including costs and timelines.
