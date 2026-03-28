@@ -8,9 +8,8 @@ gather_data_task:
 
     User Question: {user_question}
 
-    Retrieve ALL quantitative data relevant to this question from any section that applies.
-    Use the Project Context Database tool for structured lookups. Use the Project CSV Data
-    Query tool for live CSV comparisons across countries.
+    Retrieve ALL quantitative data relevant to this question directly from the project
+    context above. Cover every section that applies.
 
     Label each fact with its source section (e.g. "From Economy section:", "From R&D:").
   expected_output: >

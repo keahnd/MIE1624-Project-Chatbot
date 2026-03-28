@@ -2,8 +2,6 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 
-from basic_crewai_1.tools.custom_tool import ProjectContextTool, DataQueryTool
-
 web_search = SerperDevTool()
 
 
@@ -13,7 +11,7 @@ class BasicCrewai1:
     def data_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config["data_analyst"],
-            tools=[ProjectContextTool(), DataQueryTool()],
+            tools=[],
             max_iter=3,
             verbose=True
         )
@@ -22,7 +20,7 @@ class BasicCrewai1:
     def policy_strategy_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config["policy_strategy_analyst"],
-            tools=[DataQueryTool(), web_search],
+            tools=[web_search],
             max_iter=3,
             verbose=True
         )

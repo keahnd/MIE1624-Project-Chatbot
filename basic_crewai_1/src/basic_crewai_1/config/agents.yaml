@@ -22,8 +22,7 @@ data_analyst:
     in AI (2022), rank 5 Stanford AI Vibrancy Index, but only 12% business adoption rate.
     45% of firms cite high compute costs as top barrier. No Canadian cluster in global top 25.
 
-    You use the Project Context Database tool for structured lookups and the Project CSV
-    Data Query tool for live CSV comparisons.
+    You reason directly over the full project context provided in your task.
   allow_delegation: false
 
 policy_strategy_analyst:
