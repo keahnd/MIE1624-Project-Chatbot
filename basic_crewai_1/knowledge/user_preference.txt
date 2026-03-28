@@ -1,0 +1,58 @@
+Project: MIE1624 Course Project — Canadian AI Policy Proposal (Winter 2026)
+Client: Government of Canada — Innovation, Science and Economic Development Canada (ISED) / Treasury Board
+
+== REPORT STRUCTURE ==
+The group report covers four analytical perspectives and three policy recommendations.
+
+Part 1 — Policy & Governance and Responsible AI (RAI):
+- Canada ranks 7th of 13 countries in composite RAI performance despite ranking 5th in RAI research output
+- Canada participates in only 4 of 9 major global AI governance frameworks; weighted policy score 6.0/14.0
+- Leading comparators: Germany and France benefit from EU binding frameworks; UK is most balanced
+- Canada's main gap: limited conversion of research and policy capacity into governance influence
+
+Part 2 — Research & Development and Science & Medicine:
+- Canada ranks 1st in G7 for AI talent concentration growth (38% avg annual growth since 2018)
+- Canada holds ~10% of the world's top 0.5% AI researchers (3rd globally)
+- Canada ranks 1st in G7 for AI-related papers per capita; 6,000+ AI publications in 2022
+- Country-level AI index: Infrastructure 77, Government Strategy 100, but Research 31, Development 26, Commercial 15
+- Core gap: Canada excels at knowledge generation but not at moving projects through TRL 4-8 stages
+- Especially weak in health/clinical translation, patent-rich product development, and commercialization
+
+Part 3 — Economy:
+- 140,000+ active AI professionals; 670+ AI startups with ≥$1M USD investment in last 5 years
+- $8.6B venture capital invested in Canadian AI companies in 2022 (30% of all Canadian VC)
+- Canada ranks 5th globally on Stanford AI Vibrancy Index and 5th of 62 countries for AI capacity
+- Key barrier: Canadian businesses slow to adopt AI vs international peers; 45% of firms cite high compute costs
+- Canada lags all G7 nations in HPC infrastructure
+- No Canadian AI cluster in the global top 25
+
+== CENTRAL RESEARCH QUESTION ==
+"What policy interventions would most efficiently close Canada's research-to-commercialization gap in AI?"
+
+== THREE POLICY RECOMMENDATIONS ==
+Recommendation 1 — National Responsible AI Governance and Adoption Program
+  Cost: $250–450M over 1–3 years
+  Lead: ISED, Treasury Board, Global Affairs Canada, CIFAR
+  Components: sector-specific AI regulations, public-sector AI procurement scale-up,
+    international governance participation, national AI literacy program
+  Success metrics: legislative frameworks added, procurement value, governance frameworks joined,
+    AI literacy ranking (target: top 25 globally)
+
+Recommendation 2 — Translational AI R&D Mission Stream (under Pan-Canadian AI Strategy)
+  Cost: $75–150M per year for 3 years
+  Lead: Mitacs, ISED, NRC-IRAP, ESDC
+  Focus: fund projects at TRL 4–8 in health/clinical AI, drug discovery, clean tech, public-sector science
+  Requires: university + industry + health-system consortia; validation and commercialization plans
+  Success metrics: translational AI projects reaching pilot/regulatory validation; patents filed; follow-on private investment
+
+Recommendation 3 — National AI Adoption and Productivity Fund
+  Cost: ~$2B over 5 years
+  Lead: Finance Canada, ISED, Business Development Bank of Canada (BDC)
+  Target: increase AI business adoption rate from 12% to 25%
+  Also includes Mitacs–IRAP AI Talent Platform: AI-specific Accelerate stream, SME readiness advisory,
+    fast-track 2-week review, retention incentives, standardized IP framework
+
+== CANADA'S CORE CHALLENGE ==
+Canada has built strong AI supply (research, talent, strategy) but fails to convert this into
+measurable outcomes: commercialization, governance influence, broad business adoption, and public literacy.
+All three recommendations address a different stage of this translation gap.

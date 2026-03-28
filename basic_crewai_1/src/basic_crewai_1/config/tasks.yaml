@@ -1,0 +1,111 @@
+research_task:
+  description: >
+    You are given the full group report for the MIE1624 Canadian AI Policy Proposal.
+    The report covers four analytical sections:
+    - Section 1: Policy & Governance and Responsible AI (RAI)
+    - Section 2: Research & Development and Science & Medicine
+    - Section 3: Economy
+    - Section 4: Policy Recommendations (3 recommendations with cost, timeline, agencies, metrics)
+
+    Full Report Context (includes group report + structured RAI data):
+    {full_context}
+
+    User Question:
+    {user_question}
+
+    Extract ALL information from the report that is relevant to answering the question.
+    Do not limit yourself to one section — if the question touches on multiple analytical
+    perspectives (e.g. both governance and economy), gather evidence from all relevant sections.
+
+    Use the RAI Country Data tool if the question involves country scores, rankings, or
+    RAI-specific comparisons. Use the RAI CSV Data Query tool for live data table queries.
+
+    Focus on:
+    - directly relevant facts, statistics, and data points
+    - supporting evidence from any section of the report
+    - the specific recommendation(s) that address the topic, including cost and timeline
+    - limitations or uncertainty acknowledged in the report
+
+    Do not use outside information. Base your work only on the provided report.
+  expected_output: >
+    A structured evidence summary containing all relevant information from the report needed
+    to answer the user's question, with section labels indicating where each piece of
+    evidence comes from (e.g., "From Section 2 — R&D:" or "From Recommendation 1:").
+  agent: researcher
+
+analysis_task:
+  description: >
+    Using the evidence summary from the previous task, analyze the user's question.
+
+    User Question:
+    {user_question}
+
+    Explain what the evidence means, how it answers the question, and note any uncertainty
+    or limitations. If evidence comes from multiple sections of the report, synthesize them —
+    for example, connect Canada's low governance participation (Policy section) to its
+    commercialization weakness (Economy section) where relevant.
+
+    Where appropriate, use the RAI CSV Data Query tool to verify or add live quantitative
+    comparisons (e.g., "which countries have higher policy scores than Canada?").
+  expected_output: >
+    A clear analytical explanation answering the user's question, citing specific numbers
+    and findings from the relevant report sections, with cross-section synthesis where useful.
+  agent: analyst
+  context:
+    - research_task
+
+draft_report_task:
+  description: >
+    Write a clear final answer to the user's question.
+
+    User Question:
+    {user_question}
+
+    Your answer must:
+    - draw from all relevant sections of the report (Policy & Governance, RAI, R&D,
+      Economy, and Recommendations), not just one section
+    - cite specific statistics, country names, scores, costs, and timelines where available
+    - be clear and direct — written like a chatbot response for a live Q&A, not a formal essay
+    - avoid unsupported claims
+    - synthesize across sections if the question spans multiple analytical perspectives
+  expected_output: >
+    A polished, well-cited answer to the user's question that reflects the full depth
+    of the group report.
+  agent: writer
+  context:
+    - research_task
+    - analysis_task
+
+review_task:
+  description: >
+    Review the drafted answer for quality and completeness.
+
+    Check for:
+    - unsupported claims or missing citations
+    - missed evidence from any section of the report (Policy & Governance, RAI, R&D,
+      Economy, Recommendations)
+    - failure to synthesize across sections when the question requires it
+    - unclear wording or weak reasoning
+    - failure to directly answer the user's actual question
+
+    Provide concrete, specific corrections. Do not rewrite the whole answer — identify
+    the specific issues and what should be added or changed.
+  expected_output: >
+    A concise review memo listing specific issues and recommended fixes.
+  agent: reviewer
+  context:
+    - draft_report_task
+
+revision_task:
+  description: >
+    Revise the drafted answer using the review memo to produce the final response.
+
+    Apply the reviewer's specific corrections. Ensure the final answer draws from all
+    relevant sections of the report, cites specific data, and directly addresses the
+    user's question.
+  expected_output: >
+    A final, polished answer to the user's question that incorporates all reviewer feedback.
+  agent: writer
+  context:
+    - draft_report_task
+    - review_task

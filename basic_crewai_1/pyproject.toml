@@ -1,0 +1,32 @@
+[project]
+name = "basic_crewai_1"
+version = "0.1.0"
+description = "basic_crewai_1 using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[google-genai]==1.11.0",
+    "python-docx>=1.2.0",
+    "streamlit>=1.35.0",
+    "pandas>=2.0.0",
+]
+
+[project.scripts]
+basic_crewai_1 = "basic_crewai_1.main:run"
+run_crew = "basic_crewai_1.main:run"
+train = "basic_crewai_1.main:train"
+replay = "basic_crewai_1.main:replay"
+test = "basic_crewai_1.main:test"
+run_with_trigger = "basic_crewai_1.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
+
+[tool.uv]
+required-environments = [
+"sys_platform == 'win32' and platform_machine == 'AMD64'",
+]
