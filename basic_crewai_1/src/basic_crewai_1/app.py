@@ -46,12 +46,12 @@ def ask_crew(question: str, full_context: str) -> str:
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Canada RAI Chatbot",
+    page_title="Canada AI Chatbot",
     page_icon="🇨🇦",
     layout="wide",
 )
 
-st.title("Canada RAI Competitiveness — Q&A Chatbot")
+st.title("Canada's AI Policy — Q&A Chatbot")
 st.caption("Powered by CrewAI  ·  MIE1624 Course Project  ·  Winter 2026")
 
 # ── Sidebar: example questions ────────────────────────────────────────────────
